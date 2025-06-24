@@ -19,7 +19,7 @@ export const createResource = async (input: NewResourceParams) => {
       .returning();
 
     const embeddings = await generateEmbeddings(content);
-    await db.insert(embeddingTable).values(embeddings.map(embedding=>( {...embedding, resource_id:resource.id})));
+    await db.insert(embeddingTable).values(embeddings.map(embedding=>( {...embedding, resourceId:resource.id})));
 
     return 'Resource successfully created with embeddings generated';
   } catch (e) {
